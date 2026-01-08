@@ -1,5 +1,9 @@
 /* 1. SCROLL REVEAL ANIMATION */
-const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -11,35 +15,27 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    
-    // Auto-update specific month availability
-    const date = new Date();
-    const month = date.toLocaleString('default', { month: 'long' });
-    const availabilityText = document.getElementById('availability-text');
-    if(availabilityText) availabilityText.innerText = `Limited Spots for ${month}`;
+    document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+    });
 });
 
-/* 2. MOBILE MENU LOGIC (With 'X' Animation) */
+/* 2. MOBILE MENU LOGIC (FIXED) */
 const mobileBtn = document.getElementById('mobile-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileLinks = mobileMenu.querySelectorAll('a');
 
-const iconHamburger = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-const iconClose = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
-
+// Toggle Menu
 if (mobileBtn) {
     mobileBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        mobileBtn.querySelector('svg').innerHTML = isOpen ? iconClose : iconHamburger;
     });
 }
 
+// Close menu when a link is clicked (The "Customer Fix")
 mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
-        if (mobileBtn) mobileBtn.querySelector('svg').innerHTML = iconHamburger;
     });
 });
 
@@ -48,6 +44,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => {
         const answer = item.querySelector('.faq-answer');
         const icon = item.querySelector('.faq-icon');
+        
         if (answer.classList.contains('hidden')) {
             answer.classList.remove('hidden');
             icon.style.transform = 'rotate(180deg)';
@@ -62,7 +59,9 @@ document.querySelectorAll('.faq-item').forEach(item => {
 function selectPackage(pkgName) {
     const select = document.getElementById('package-select');
     const contactSection = document.getElementById('contact');
+    
     contactSection.scrollIntoView({ behavior: 'smooth' });
+
     for (let i = 0; i < select.options.length; i++) {
         if (select.options[i].text.includes(pkgName)) {
             select.selectedIndex = i;
@@ -71,7 +70,7 @@ function selectPackage(pkgName) {
     }
 }
 
-/* 5. FORM SUBMISSION */
+/* 5. SECURE FORM SUBMISSION */
 async function submitForm(e) {
     e.preventDefault();
     const form = e.target;
@@ -79,7 +78,7 @@ async function submitForm(e) {
     const result = document.getElementById('result');
     const originalText = btn.innerText;
 
-    btn.innerText = "Processing...";
+    btn.innerText = "Sending...";
     btn.disabled = true;
     btn.classList.add('opacity-70', 'cursor-wait');
 
@@ -90,21 +89,25 @@ async function submitForm(e) {
     try {
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
             body: json
         });
+        
         const jsonResponse = await response.json();
 
         if (response.status == 200) {
-            result.innerHTML = "Request Received! We'll text/email you shortly.";
+            result.innerHTML = "Success! We will contact you shortly.";
             result.className = "text-center text-sm mt-4 text-green-400 font-bold";
             form.reset();
         } else {
-            result.innerHTML = jsonResponse.message || "Error.";
+            result.innerHTML = jsonResponse.message || "Error sending message.";
             result.className = "text-center text-sm mt-4 text-red-400 font-bold";
         }
     } catch (error) {
-        result.innerHTML = "Network error.";
+        result.innerHTML = "Network error. Please try again.";
         result.className = "text-center text-sm mt-4 text-red-400 font-bold";
     } finally {
         btn.innerText = originalText;
@@ -113,6 +116,3 @@ async function submitForm(e) {
         setTimeout(() => { result.innerHTML = ""; }, 5000);
     }
 }
-
-/* 6. FOOTER YEAR UPDATE */
-document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} Apex Digital Agency. All rights reserved.`;

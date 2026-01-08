@@ -7,13 +7,15 @@
 
 html {
     scroll-behavior: smooth;
+    /* CRITICAL FIX: This stops the header from covering section titles */
+    scroll-padding-top: 100px;
 }
 
 body {
     background-color: var(--bg-dark);
     color: #f8fafc;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    overflow-x: hidden; /* Prevents horizontal scroll glitches */
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -30,11 +32,11 @@ body {
     border: 2px solid #0f172a;
 }
 
-/* --- GLASSMORPHISM UTILITY --- */
+/* --- GLASSMORPHISM --- */
 .glass {
-    background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    background: rgba(15, 23, 42, 0.8); /* Slightly darker for better readability */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--glass-border);
 }
 
@@ -44,13 +46,12 @@ body {
     border: 1px solid var(--glass-border);
 }
 
-/* --- TEXT GLOW EFFECT --- */
+/* --- EFFECTS --- */
 .text-glow {
     text-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
 }
 
-/* --- ANIMATIONS --- */
-/* Floating blobs in background */
+/* Floating Animation */
 @keyframes blob {
     0% { transform: translate(0px, 0px) scale(1); }
     33% { transform: translate(30px, -50px) scale(1.1); }
@@ -66,12 +67,11 @@ body {
     animation-delay: 2s;
 }
 
-/* Scroll Reveal Animation (Handled by IntersectionObserver in JS) */
+/* Reveal Animation */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-    will-change: opacity, transform; /* Performance hint for browser */
 }
 
 .reveal.active {
@@ -79,10 +79,15 @@ body {
     transform: translateY(0);
 }
 
-/* Card Hover Effects */
+/* Interactive Elements */
 .hover-card {
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .hover-card:hover {
     transform: translateY(-5px);
+}
+
+/* FAQ Icon Rotation */
+.faq-icon {
+    transition: transform 0.3s ease;
 }

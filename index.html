@@ -1,104 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Digital | High-Performance Web Design</title>
     <meta name="description" content="Apex Digital builds high-performance, conversion-focused websites for local businesses.">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
                     colors: {
-                        brand: {
-                            500: '#6366f1', // Indigo
-                            600: '#4f46e5',
-                        },
-                        dark: {
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#020617',
-                        }
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            "0%": { transform: "translate(0px, 0px) scale(1)" },
-                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
-                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
-                            "100%": { transform: "translate(0px, 0px) scale(1)" }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
+                        indigo: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 900: '#312e81' },
+                        slate: { 800: '#1e293b', 900: '#0f172a', 950: '#020617' }
                     }
                 }
             }
         }
     </script>
-    <style>
-        body { background-color: #020617; color: #f8fafc; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-        .glass { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .text-glow { text-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-    </style>
-</head>
-<body class="antialiased selection:bg-brand-500 selection:text-white">
 
-    <nav class="fixed w-full z-50 glass border-b border-white/5">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+    <nav class="fixed w-full z-50 glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">A</div>
-                <span class="font-bold text-xl tracking-tight">Apex<span class="text-brand-500">Digital</span></span>
+                <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/30">A</div>
+                <span class="font-bold text-xl tracking-tight text-white">Apex<span class="text-indigo-500">Digital</span></span>
             </div>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-                <a href="#work" class="hover:text-white transition">Our Work</a>
-                <a href="#process" class="hover:text-white transition">Process</a>
-                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                <a href="#work" class="hover:text-white transition-colors duration-200">Our Work</a>
+                <a href="#process" class="hover:text-white transition-colors duration-200">Process</a>
+                <a href="#pricing" class="hover:text-white transition-colors duration-200">Pricing</a>
             </div>
-            <a href="#contact" class="px-6 py-2.5 bg-white text-slate-900 rounded-full text-sm font-bold hover:bg-slate-200 transition">
+            <a href="#contact" class="px-6 py-2.5 bg-white text-slate-900 rounded-full text-sm font-bold hover:bg-slate-200 transition-colors duration-200 shadow-lg shadow-white/10">
                 Start Project
             </a>
         </div>
     </nav>
 
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div class="absolute top-0 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center reveal active">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-brand-500 text-xs font-bold uppercase tracking-widest mb-8">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-8">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                 Accepting New Clients
             </div>
-            <h1 class="text-5xl lg:text-8xl font-bold tracking-tight mb-8">
+            <h1 class="text-5xl lg:text-8xl font-bold text-white tracking-tight mb-8">
                 We Build Websites That <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-purple-500 text-glow">Print Money.</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500 text-glow">Print Money.</span>
             </h1>
             <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
                 Most local business websites are stuck in the past. We build lightning-fast, conversion-focused digital experiences that turn visitors into paying customers.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#pricing" class="px-8 py-4 bg-brand-600 text-white rounded-xl font-bold hover:bg-brand-500 transition shadow-lg shadow-brand-500/25">
+                <a href="#pricing" class="px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/25">
                     View Packages
                 </a>
-                <a href="#work" class="px-8 py-4 glass text-white rounded-xl font-bold hover:bg-white/10 transition">
+                <a href="#work" class="px-8 py-4 glass-card text-white rounded-xl font-bold hover:bg-white/10 transition">
                     See Live Demos
                 </a>
             </div>
@@ -107,19 +74,19 @@
 
     <section class="border-y border-white/5 bg-white/5 backdrop-blur-sm py-12">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
+            <div class="reveal">
                 <p class="text-4xl font-bold text-white mb-1">100%</p>
                 <p class="text-xs text-slate-500 uppercase tracking-widest">Mobile Responsive</p>
             </div>
-            <div>
+            <div class="reveal">
                 <p class="text-4xl font-bold text-white mb-1">&lt;1s</p>
                 <p class="text-xs text-slate-500 uppercase tracking-widest">Load Speeds</p>
             </div>
-            <div>
+            <div class="reveal">
                 <p class="text-4xl font-bold text-white mb-1">SEO</p>
                 <p class="text-xs text-slate-500 uppercase tracking-widest">Optimized Structure</p>
             </div>
-            <div>
+            <div class="reveal">
                 <p class="text-4xl font-bold text-white mb-1">24/7</p>
                 <p class="text-xs text-slate-500 uppercase tracking-widest">Sales Machine</p>
             </div>
@@ -129,12 +96,12 @@
     <section id="work" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl lg:text-5xl font-bold mb-6">Don't Trust Words.<br>Trust Code.</h2>
+                <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">Don't Trust Words.<br>Trust Code.</h2>
                 <p class="text-slate-400">Explore our live demo environments. This is the quality you can expect.</p>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8">
-                <div class="group relative bg-dark-800 rounded-3xl border border-white/5 overflow-hidden hover:border-brand-500/50 transition duration-500 reveal">
+                <div class="group relative bg-slate-900 rounded-3xl border border-white/5 overflow-hidden hover:border-indigo-500/50 hover-card reveal">
                     <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
                         <h3 class="text-9xl font-bold text-white/5 absolute -bottom-4 -right-4">1</h3>
@@ -143,14 +110,14 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold text-white mb-2">The Launchpad</h3>
                         <p class="text-slate-400 text-sm mb-6">A high-impact, single-page funnel designed for solopreneurs and startups.</p>
-                        <a href="https://demo-website-orcin-seven.vercel.app/" target="_blank" class="flex items-center justify-between w-full p-4 bg-white/5 rounded-xl text-sm font-bold text-white hover:bg-brand-600 transition group-hover:translate-x-1 duration-300">
+                        <a href="https://demo-website-orcin-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between w-full p-4 bg-white/5 rounded-xl text-sm font-bold text-white hover:bg-indigo-600 transition group-hover:translate-x-1 duration-300">
                             View Live Demo
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <div class="group relative bg-dark-800 rounded-3xl border border-white/5 overflow-hidden hover:border-brand-500/50 transition duration-500 reveal">
+                <div class="group relative bg-slate-900 rounded-3xl border border-white/5 overflow-hidden hover:border-indigo-500/50 hover-card reveal">
                     <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
                         <h3 class="text-9xl font-bold text-white/5 absolute -bottom-4 -right-4">2</h3>
@@ -159,16 +126,16 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold text-white mb-2">The Authority</h3>
                         <p class="text-slate-400 text-sm mb-6">Standard 4-page site (Home, About, Services, Contact) for established businesses.</p>
-                        <a href="https://demo-website2-plum.vercel.app/index.html" target="_blank" class="flex items-center justify-between w-full p-4 bg-white/5 rounded-xl text-sm font-bold text-white hover:bg-brand-600 transition group-hover:translate-x-1 duration-300">
+                        <a href="https://demo-website2-plum.vercel.app/index.html" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between w-full p-4 bg-white/5 rounded-xl text-sm font-bold text-white hover:bg-indigo-600 transition group-hover:translate-x-1 duration-300">
                             View Live Demo
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <div class="group relative bg-dark-800 rounded-3xl border border-brand-500/30 overflow-hidden hover:shadow-[0_0_50px_rgba(99,102,241,0.3)] transition duration-500 reveal">
-                    <div class="absolute top-0 right-0 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl z-20">MOST POPULAR</div>
-                    <div class="h-48 bg-gradient-to-br from-brand-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                <div class="group relative bg-slate-900 rounded-3xl border border-indigo-500/30 overflow-hidden hover:shadow-[0_0_50px_rgba(99,102,241,0.3)] hover-card reveal">
+                    <div class="absolute top-0 right-0 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl z-20">MOST POPULAR</div>
+                    <div class="h-48 bg-gradient-to-br from-indigo-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
                         <h3 class="text-9xl font-bold text-white/5 absolute -bottom-4 -right-4">3</h3>
                         <p class="font-bold text-white text-xl relative z-10">Dominator Suite</p>
@@ -176,9 +143,26 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold text-white mb-2">The Market Leader</h3>
                         <p class="text-slate-400 text-sm mb-6">Complete 12-page marketing suite with Blog, SEO structure, and PPC Landing Pages.</p>
-                        <a href="https://demo-website3.vercel.app/" target="_blank" class="flex items-center justify-between w-full p-4 bg-brand-600 rounded-xl text-sm font-bold text-white hover:bg-brand-500 transition group-hover:translate-x-1 duration-300">
+                        <a href="https://demo-website3.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between w-full p-4 bg-indigo-600 rounded-xl text-sm font-bold text-white hover:bg-indigo-500 transition group-hover:translate-x-1 duration-300">
                             View Live Demo
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center reveal">
+                <div class="max-w-4xl mx-auto p-1 rounded-3xl bg-gradient-to-r from-white/10 to-white/5">
+                    <div class="bg-slate-950 rounded-[22px] p-8 md:flex items-center justify-between gap-8">
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold text-white mb-2">Need a Custom Solution?</h3>
+                            <p class="text-slate-400 text-sm max-w-lg">
+                                Have a complex project, custom app, or specific design requirements? 
+                                We offer bespoke development services tailored to your exact needs.
+                            </p>
+                        </div>
+                        <a href="#contact" onclick="selectPackage('Custom')" class="whitespace-nowrap px-8 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-slate-200 transition mt-6 md:mt-0 shadow-lg">
+                            Get Custom Quote
                         </a>
                     </div>
                 </div>
@@ -189,100 +173,78 @@
     <section id="pricing" class="py-24 bg-white/5 border-y border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl lg:text-5xl font-bold mb-6">Simple, Transparent Pricing</h2>
+                <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">Simple, Transparent Pricing</h2>
                 <p class="text-slate-400">No hidden monthly fees. You own the code 100%.</p>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="p-8 rounded-3xl border border-white/10 bg-dark-900 reveal hover:bg-white/5 transition">
+                <div class="p-8 rounded-3xl border border-white/10 bg-slate-900 reveal hover:bg-white/5 transition hover-card">
                     <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
-                    <div class="text-3xl font-bold text-brand-500 mb-6">$499</div>
+                    <div class="text-3xl font-bold text-indigo-500 mb-6">$499</div>
                     <ul class="space-y-4 mb-8 text-slate-400 text-sm">
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> 1-Page Long Scroll</li>
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> Mobile Optimized</li>
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> Contact Form</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> 1-Page Long Scroll</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> Mobile Optimized</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> Contact Form</li>
                         <li class="flex gap-3"><span class="text-slate-600">✕</span> No Blog</li>
-                        <li class="flex gap-3"><span class="text-slate-600">✕</span> No SEO Pages</li>
                     </ul>
                     <a href="#contact" onclick="selectPackage('Starter')" class="block w-full py-3 rounded-xl border border-white/20 text-center font-bold text-white hover:bg-white hover:text-slate-900 transition">Get Started</a>
                 </div>
 
-                <div class="p-8 rounded-3xl border border-white/10 bg-dark-900 reveal hover:bg-white/5 transition">
+                <div class="p-8 rounded-3xl border border-white/10 bg-slate-900 reveal hover:bg-white/5 transition hover-card">
                     <h3 class="text-2xl font-bold text-white mb-2">Authority</h3>
-                    <div class="text-3xl font-bold text-brand-500 mb-6">$899</div>
+                    <div class="text-3xl font-bold text-indigo-500 mb-6">$899</div>
                     <ul class="space-y-4 mb-8 text-slate-400 text-sm">
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> 4-Page Website</li>
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> About, Services, Contact</li>
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> Google Maps Integration</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> 4-Page Website</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> About, Services, Contact</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> Google Maps Integration</li>
                         <li class="flex gap-3"><span class="text-slate-600">✕</span> No Blog</li>
-                        <li class="flex gap-3"><span class="text-slate-600">✕</span> No Landing Page</li>
                     </ul>
                     <a href="#contact" onclick="selectPackage('Authority')" class="block w-full py-3 rounded-xl border border-white/20 text-center font-bold text-white hover:bg-white hover:text-slate-900 transition">Get Started</a>
                 </div>
 
-                <div class="p-8 rounded-3xl border border-brand-500/50 bg-gradient-to-b from-dark-800 to-dark-900 reveal relative overflow-hidden">
-                    <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-500 to-purple-500"></div>
+                <div class="p-8 rounded-3xl border border-indigo-500/50 bg-gradient-to-b from-slate-800 to-slate-900 reveal relative overflow-hidden hover-card">
+                    <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
                     <h3 class="text-2xl font-bold text-white mb-2">Dominator</h3>
-                    <div class="text-3xl font-bold text-brand-500 mb-6">$1,499</div>
+                    <div class="text-3xl font-bold text-indigo-500 mb-6">$1,499</div>
                     <ul class="space-y-4 mb-8 text-slate-400 text-sm">
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> 10+ Page Full Site</li>
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> Blog for SEO Traffic</li>
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> Individual Service Pages</li>
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> <strong>Bonus:</strong> Ad Landing Page</li>
-                        <li class="flex gap-3 text-white"><span class="text-brand-500">✓</span> <strong>Bonus:</strong> Email Setup</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> 10+ Page Full Site</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> Blog for SEO Traffic</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> <strong>Bonus:</strong> Ad Landing Page</li>
+                        <li class="flex gap-3 text-white"><span class="text-indigo-500">✓</span> <strong>Bonus:</strong> Email Setup</li>
                     </ul>
-                    <a href="#contact" onclick="selectPackage('Dominator')" class="block w-full py-3 rounded-xl bg-brand-600 text-center font-bold text-white hover:bg-brand-500 transition shadow-lg shadow-brand-500/25">Get Started</a>
+                    <a href="#contact" onclick="selectPackage('Dominator')" class="block w-full py-3 rounded-xl bg-indigo-600 text-center font-bold text-white hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/25">Get Started</a>
                 </div>
             </div>
-
-            <div class="mt-12 text-center reveal">
-                <div class="max-w-4xl mx-auto p-1 rounded-3xl bg-gradient-to-r from-white/10 to-white/5">
-                    <div class="bg-dark-950 rounded-[22px] p-8 md:flex items-center justify-between gap-8">
-                        <div class="text-left">
-                            <h3 class="text-2xl font-bold text-white mb-2">Need a Custom Solution?</h3>
-                            <p class="text-slate-400 text-sm max-w-lg">
-                                Have a complex project, custom app, or specific design requirements? 
-                                We offer bespoke development services tailored to your exact needs.
-                            </p>
-                        </div>
-                        <a href="#contact" onclick="selectPackage('Custom')" class="whitespace-nowrap px-8 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-slate-200 transition mt-6 md:mt-0">
-                            Get Custom Quote
-                        </a>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section id="contact" class="py-24">
+    <section id="contact" class="py-24 relative">
         <div class="max-w-xl mx-auto px-6">
             <div class="text-center mb-10 reveal">
-                <h2 class="text-3xl font-bold mb-4">Start Your Project</h2>
+                <h2 class="text-3xl font-bold text-white mb-4">Start Your Project</h2>
                 <p class="text-slate-400">Fill out the form below. We will reply within 24 hours.</p>
             </div>
 
-            <form id="contact-form" onsubmit="submitForm(event)" class="space-y-4 bg-white/5 p-8 rounded-3xl border border-white/5 reveal">
+            <form id="contact-form" onsubmit="submitForm(event)" class="space-y-4 glass-card p-8 rounded-3xl reveal">
                 
                 <input type="hidden" name="access_key" value="a8bb5fa9-db52-476c-a587-f40fa7ba8412">
                 
                 <input type="hidden" name="subject" value="New Apex Digital Website Lead">
-                
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Name</label>
-                        <input type="text" name="name" required class="w-full bg-dark-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition">
+                        <input type="text" name="name" required class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition placeholder-slate-600">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Email</label>
-                        <input type="email" name="email" required class="w-full bg-dark-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition">
+                        <input type="email" name="email" required class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition placeholder-slate-600">
                     </div>
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Select Package</label>
-                    <select id="package-select" name="package" class="w-full bg-dark-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition">
+                    <select id="package-select" name="package" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition">
                         <option>Starter ($499)</option>
                         <option>Authority ($899)</option>
                         <option>Dominator ($1,499)</option>
@@ -291,14 +253,14 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Business Industry</label>
-                    <input type="text" name="industry" placeholder="e.g. Gym, Lawyer, Plumber" class="w-full bg-dark-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition">
+                    <input type="text" name="industry" placeholder="e.g. Gym, Lawyer, Plumber" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition placeholder-slate-600">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Message (Optional)</label>
-                    <textarea name="message" rows="3" class="w-full bg-dark-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition"></textarea>
+                    <textarea name="message" rows="3" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition placeholder-slate-600"></textarea>
                 </div>
                 
-                <button type="submit" class="w-full py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition">Send Request</button>
+                <button type="submit" class="w-full py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition shadow-lg">Send Request</button>
                 <p id="result" class="text-center text-sm mt-4 text-slate-400"></p>
             </form>
         </div>
@@ -308,82 +270,6 @@
         <p>&copy; 2026 Apex Digital Agency. All rights reserved.</p>
     </footer>
 
-    <script>
-        // FORM SUBMISSION LOGIC (Web3Forms)
-        async function submitForm(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const result = document.getElementById('result');
-            
-            // Loading State
-            const originalText = btn.innerText;
-            btn.innerText = "Sending...";
-            btn.disabled = true;
-
-            const formData = new FormData(e.target);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: json
-                });
-                
-                const jsonResponse = await response.json();
-
-                if (response.status == 200) {
-                    // Success
-                    result.innerHTML = "Success! We'll be in touch shortly.";
-                    result.classList.remove("text-red-500");
-                    result.classList.add("text-green-500");
-                    e.target.reset(); // Clear the form
-                } else {
-                    // Error
-                    console.log(response);
-                    result.innerHTML = jsonResponse.message || "Something went wrong.";
-                    result.classList.add("text-red-500");
-                }
-            } catch (error) {
-                console.log(error);
-                result.innerHTML = "Network error! Please check your connection.";
-                result.classList.add("text-red-500");
-            } finally {
-                btn.innerText = originalText;
-                btn.disabled = false;
-                setTimeout(() => {
-                    result.innerHTML = "";
-                    result.classList.remove("text-green-500", "text-red-500");
-                }, 5000);
-            }
-        }
-
-        // Package Selection Helper
-        function selectPackage(pkgName) {
-            const select = document.getElementById('package-select');
-            for (let i = 0; i < select.options.length; i++) {
-                if (select.options[i].text.includes(pkgName)) {
-                    select.selectedIndex = i;
-                    break;
-                }
-            }
-        }
-
-        // Scroll Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

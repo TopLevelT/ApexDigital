@@ -1,9 +1,5 @@
 /* 1. SCROLL REVEAL ANIMATION */
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
+const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -15,27 +11,38 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.reveal').forEach((el) => {
-        observer.observe(el);
-    });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    
+    // Auto-update availability to current month (FOMO tactic)
+    const month = new Date().toLocaleString('default', { month: 'long' });
+    const availabilityText = document.getElementById('availability-text');
+    if(availabilityText) availabilityText.innerText = `Limited Spots for ${month}`;
+
+    // Auto-update Footer Year
+    document.getElementById('current-year').innerText = new Date().getFullYear();
 });
 
-/* 2. MOBILE MENU LOGIC (FIXED) */
+/* 2. MOBILE MENU LOGIC (With 'X' Animation) */
 const mobileBtn = document.getElementById('mobile-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileLinks = mobileMenu.querySelectorAll('a');
 
-// Toggle Menu
+const iconHamburger = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+const iconClose = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+
 if (mobileBtn) {
     mobileBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileBtn.querySelector('svg').innerHTML = isOpen ? iconClose : iconHamburger;
     });
 }
 
-// Close menu when a link is clicked (The "Customer Fix")
+// Close menu when link is clicked
 mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
+        if (mobileBtn) mobileBtn.querySelector('svg').innerHTML = iconHamburger;
     });
 });
 
@@ -45,6 +52,14 @@ document.querySelectorAll('.faq-item').forEach(item => {
         const answer = item.querySelector('.faq-answer');
         const icon = item.querySelector('.faq-icon');
         
+        // Close others (Optional - keeps it clean)
+        document.querySelectorAll('.faq-answer').forEach(a => {
+            if(a !== answer) a.classList.add('hidden');
+        });
+        document.querySelectorAll('.faq-icon').forEach(i => {
+            if(i !== icon) i.style.transform = 'rotate(0deg)';
+        });
+
         if (answer.classList.contains('hidden')) {
             answer.classList.remove('hidden');
             icon.style.transform = 'rotate(180deg)';
@@ -70,7 +85,7 @@ function selectPackage(pkgName) {
     }
 }
 
-/* 5. SECURE FORM SUBMISSION */
+/* 5. FORM SUBMISSION */
 async function submitForm(e) {
     e.preventDefault();
     const form = e.target;
@@ -78,7 +93,7 @@ async function submitForm(e) {
     const result = document.getElementById('result');
     const originalText = btn.innerText;
 
-    btn.innerText = "Sending...";
+    btn.innerText = "Processing...";
     btn.disabled = true;
     btn.classList.add('opacity-70', 'cursor-wait');
 
@@ -89,17 +104,13 @@ async function submitForm(e) {
     try {
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
             body: json
         });
-        
         const jsonResponse = await response.json();
 
         if (response.status == 200) {
-            result.innerHTML = "Success! We will contact you shortly.";
+            result.innerHTML = "Request Received! We'll reach out shortly.";
             result.className = "text-center text-sm mt-4 text-green-400 font-bold";
             form.reset();
         } else {

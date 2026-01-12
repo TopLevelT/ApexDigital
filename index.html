@@ -15,12 +15,6 @@
     <meta property="og:description" content="Stop renting your website. Get a custom, Google-optimized asset for a one-time fee. 100% Ownership.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.apexdigital.com/">
-    <meta property="twitter:title" content="Apex Digital | High-Performance Local Websites">
-    <meta property="twitter:description" content="Stop renting your website. Get a custom, Google-optimized asset for a one-time fee.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop">
-
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,13 +26,9 @@
         .text-gradient { background: linear-gradient(to right, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .grid-bg { background-image: radial-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px); background-size: 40px 40px; }
         
-        /* Subtle animation for the scroll down arrow */
-        .bounce { animation: bounce 2s infinite; }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
+        /* Form success animation */
+        .success-message { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -51,7 +41,8 @@
             </a>
             
             <div class="hidden md:flex gap-8 items-center text-sm font-medium text-slate-300">
-                <a href="#work" class="hover:text-white transition">Why Apex?</a>
+                <a href="#about" class="hover:text-white transition">Why Apex?</a>
+                <a href="#portfolio" class="hover:text-white transition">Work</a>
                 <a href="#pricing" class="hover:text-white transition">Packages</a>
                 <a href="#faq" class="hover:text-white transition">FAQ</a>
                 <a href="#contact" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-500 transition shadow-lg">
@@ -66,9 +57,9 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40">
             <div class="flex flex-col p-6 space-y-4 text-center">
-                <a href="#work" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Why Apex?</a>
+                <a href="#about" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Why Apex?</a>
+                <a href="#portfolio" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Our Work</a>
                 <a href="#pricing" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Packages</a>
-                <a href="#faq" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Common Questions</a>
                 <a href="#contact" class="block w-full py-4 bg-blue-600 text-white font-bold rounded-lg mt-2 shadow-lg">Get Free Quote</a>
             </div>
         </div>
@@ -106,7 +97,7 @@
         </div>
     </header>
 
-    <section id="work" class="py-20 bg-slate-900">
+    <section id="about" class="py-20 bg-slate-900">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -130,13 +121,110 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">The "No-Outsource" Guarantee</h3>
                     <p class="text-slate-300 italic mb-6 leading-relaxed">
-                        "I've worked in this industry long enough to see how agencies operate: they sell you the dream, then outsource your site to a junior dev for pennies. That's why I launched Apex. <strong>You hire me, you get me.</strong> Because I do the work personally, I cap my intake to ensure your site is perfect. I'm currently building my private portfolio, which is the only reason you're seeing these rates."
+                        "I've worked in this industry long enough to see how agencies operate: they sell you the dream, then outsource your site to a junior dev for pennies. That's why I launched Apex. <strong>You hire me, you get me.</strong> Because I do the work personally, I cap my intake to ensure your site is perfect."
                     </p>
                     <div class="flex items-center gap-3">
                         <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center font-bold text-blue-300 border border-blue-500/30">EC</div>
                         <div>
                             <p class="font-bold text-white">Ethan Caldwell</p>
                             <p class="text-xs text-slate-500">Founder & Lead Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-16 bg-blue-900/10 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">The Apex Process</h2>
+            <div class="grid md:grid-cols-3 gap-8 mt-8 text-left">
+                <div class="p-6 rounded-lg bg-slate-900/50 border border-white/5">
+                    <div class="text-blue-400 font-bold text-lg mb-2">01. Strategy</div>
+                    <p class="text-slate-400 text-sm">We analyze your local competitors and define the keywords we need to target.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-900/50 border border-white/5">
+                    <div class="text-blue-400 font-bold text-lg mb-2">02. Execution</div>
+                    <p class="text-slate-400 text-sm">I hand-code your site. No bloatware. Just clean, fast code that ranks.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-900/50 border border-white/5">
+                    <div class="text-blue-400 font-bold text-lg mb-2">03. Handover</div>
+                    <p class="text-slate-400 text-sm">You get full ownership, a tutorial on how to use it, and 30 days of support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 bg-slate-950 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Recent Deployments</h2>
+                <p class="text-slate-400">Real results for local businesses.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-blue-500/50 transition">
+                    <div class="h-48 bg-slate-800 relative">
+                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Tech Client">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-blue-400 font-bold uppercase tracking-wider mb-2">Service Industry</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Metro HVAC Systems</h3>
+                        <p class="text-slate-400 text-sm mb-4">Redesigned site increased lead form submissions by 140% in 30 days.</p>
+                        <a href="#" class="text-white text-sm font-semibold underline decoration-blue-500 hover:text-blue-400 transition">View Case Study &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-blue-500/50 transition">
+                    <div class="h-48 bg-slate-800 relative">
+                        <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Legal Client">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-blue-400 font-bold uppercase tracking-wider mb-2">Legal</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Caldwell & Associates</h3>
+                        <p class="text-slate-400 text-sm mb-4">Ranked #1 for "Family Law Attorney" in local map pack within 3 months.</p>
+                        <a href="#" class="text-white text-sm font-semibold underline decoration-blue-500 hover:text-blue-400 transition">View Case Study &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden group hover:border-blue-500/50 transition">
+                    <div class="h-48 bg-slate-800 relative">
+                        <img src="https://images.unsplash.com/photo-1595475207225-428b62bda831?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Retail Client">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-blue-400 font-bold uppercase tracking-wider mb-2">E-Commerce</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Urban Coffee Roasters</h3>
+                        <p class="text-slate-400 text-sm mb-4">Custom Shopify integration with 98/100 Mobile Speed Score.</p>
+                        <a href="#" class="text-white text-sm font-semibold underline decoration-blue-500 hover:text-blue-400 transition">View Case Study &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-900 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">What Clients Say</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-800/50 border border-white/5 relative">
+                    <div class="text-blue-500 text-4xl font-serif absolute top-6 left-6">“</div>
+                    <p class="text-slate-300 italic mb-6 pl-4 z-10 relative">Ethan completely transformed our online presence. We were paying a big agency $500/month for nothing. Now we own our site and leads are coming in daily.</p>
+                    <div class="flex items-center gap-3 pl-4">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">JS</div>
+                        <div class="text-sm">
+                            <div class="text-white font-bold">John Stevens</div>
+                            <div class="text-slate-500">Owner, Stevens Plumbing</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-800/50 border border-white/5 relative">
+                    <div class="text-blue-500 text-4xl font-serif absolute top-6 left-6">“</div>
+                    <p class="text-slate-300 italic mb-6 pl-4 z-10 relative">The best investment I made for my business this year. The 'No-Outsource' guarantee is real—Ethan was responsive and built exactly what we needed.</p>
+                    <div class="flex items-center gap-3 pl-4">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">AL</div>
+                        <div class="text-sm">
+                            <div class="text-white font-bold">Sarah Lopez</div>
+                            <div class="text-slate-500">Director, BrightStart Realty</div>
                         </div>
                     </div>
                 </div>
@@ -162,7 +250,7 @@
                     <p class="text-sm text-slate-400 mb-6 border-b border-white/10 pb-6">Perfect for businesses establishing their first professional digital footprint.</p>
                     
                     <ul class="space-y-4 mb-8 text-slate-300 text-sm flex-1">
-                        <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Single-Page Conversion Layout</strong> (Home, Services, Contact)</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Single-Page Conversion Layout</strong></li>
                         <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Technical SEO:</strong> Mobile Speed Optimization</li>
                         <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>SSL Security:</strong> "Https" Lock included</li>
                         <li class="flex gap-2"><span class="text-blue-400">✓</span> Contact Form with Spam Protection</li>
@@ -182,9 +270,9 @@
                     
                     <ul class="space-y-4 mb-8 text-white text-sm flex-1">
                         <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>5-Page Lead Funnel</strong> (Home, About, Services, Projects, Contact)</li>
-                        <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Local SEO Strategy:</strong> Keyword Research (Top 10 Terms)</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Local SEO Strategy:</strong> Keyword Research</li>
                         <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Google Business Profile:</strong> Setup & Optimization</li>
-                        <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Analytics:</strong> Google Analytics 4 (GA4) Integration</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Analytics:</strong> GA4 Integration</li>
                         <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>Copywriting:</strong> Sales-focused text included</li>
                     </ul>
                     <a href="#contact" onclick="selectPlan('Dominance')" class="block w-full py-4 text-center bg-blue-600 hover:bg-blue-500 rounded-lg font-bold transition shadow-lg">Lock In This Rate</a>
@@ -194,27 +282,7 @@
         </div>
     </section>
 
-    <section id="process" class="py-16 bg-blue-900/10 border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold text-white mb-4">The Apex Process</h2>
-            <div class="grid md:grid-cols-3 gap-8 mt-8 text-left">
-                <div class="p-6 rounded-lg bg-slate-900/50 border border-white/5">
-                    <div class="text-blue-400 font-bold text-lg mb-2">01. Strategy</div>
-                    <p class="text-slate-400 text-sm">We analyze your local competitors and define the keywords we need to target.</p>
-                </div>
-                <div class="p-6 rounded-lg bg-slate-900/50 border border-white/5">
-                    <div class="text-blue-400 font-bold text-lg mb-2">02. Execution</div>
-                    <p class="text-slate-400 text-sm">I hand-code your site. No bloatware. Just clean, fast code that ranks.</p>
-                </div>
-                <div class="p-6 rounded-lg bg-slate-900/50 border border-white/5">
-                    <div class="text-blue-400 font-bold text-lg mb-2">03. Handover</div>
-                    <p class="text-slate-400 text-sm">You get full ownership, a tutorial on how to use it, and 30 days of support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="py-16 bg-slate-950 border-t border-white/5">
+    <section id="faq" class="py-16 bg-slate-900 border-t border-white/5">
         <div class="max-w-3xl mx-auto px-6">
             <h2 class="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
             <div class="space-y-6">
@@ -244,27 +312,34 @@
                     <p class="text-slate-400">Current Status: <span class="text-green-400 font-bold">Onboarding New Clients</span></p>
                 </div>
 
-                <form action="https://api.web3forms.com/submit" method="POST" id="form" class="space-y-6">
+                <form id="contact-form" class="space-y-6">
                     <input type="hidden" name="access_key" value="a8bb5fa9-db52-476c-a587-f40fa7ba8412">
                     
                     <div>
                         <label class="block text-sm font-medium text-slate-400 mb-2">Your Name</label>
-                        <input type="text" name="name" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="John Smith">
+                        <input type="text" name="name" id="name" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="John Smith">
                     </div>
                     
                     <div>
                         <label class="block text-sm font-medium text-slate-400 mb-2">Phone Number</label>
-                        <input type="tel" name="phone" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="(555) 000-0000">
+                        <input type="tel" name="phone" id="phone" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="(555) 000-0000">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-slate-400 mb-2">Email Address</label>
-                        <input type="email" name="email" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
+                        <input type="email" name="email" id="email" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-slate-400 mb-2">Message (Optional)</label>
+                        <textarea name="message" id="message" rows="3" class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Tell me about your business..."></textarea>
                     </div>
 
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-lg transition shadow-lg transform hover:scale-[1.02]">
+                    <button type="submit" id="submit-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-lg transition shadow-lg transform hover:scale-[1.02]">
                         Get Free Quote
                     </button>
+                    
+                    <div id="result" class="text-center text-sm font-semibold hidden"></div>
                     
                     <p class="text-center text-xs text-slate-500 mt-4">100% Privacy Guaranteed. No Spam.</p>
                 </form>

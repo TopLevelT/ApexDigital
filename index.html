@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Local Business Web Design & SEO | Apex Digital</title>
-    <meta name="description" content="Affordable, high-performance web design for local businesses. We build sites that rank on Google and convert visitors into customers. $499 One-time fee.">
+    <meta name="description" content="Affordable, high-performance web design for local businesses. We build sites that rank on Google and convert visitors into customers. Flat rate. No monthly fees.">
     <meta name="keywords" content="Local Web Design, Small Business Website, SEO Services, Affordable Web Design, Lead Generation">
     <meta name="author" content="Apex Digital">
 
@@ -31,6 +31,14 @@
         .glass-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
         .text-gradient { background: linear-gradient(to right, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .grid-bg { background-image: radial-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px); background-size: 40px 40px; }
+        
+        /* Subtle animation for the scroll down arrow */
+        .bounce { animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -43,9 +51,9 @@
             </a>
             
             <div class="hidden md:flex gap-8 items-center text-sm font-medium text-slate-300">
-                <a href="#work" class="hover:text-white transition">Our Work</a>
+                <a href="#work" class="hover:text-white transition">Why Apex?</a>
                 <a href="#pricing" class="hover:text-white transition">Packages</a>
-                <a href="#process" class="hover:text-white transition">Process</a>
+                <a href="#faq" class="hover:text-white transition">FAQ</a>
                 <a href="#contact" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-500 transition shadow-lg">
                     Get Free Quote
                 </a>
@@ -58,8 +66,9 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40">
             <div class="flex flex-col p-6 space-y-4 text-center">
-                <a href="#work" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Our Work</a>
+                <a href="#work" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Why Apex?</a>
                 <a href="#pricing" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Packages</a>
+                <a href="#faq" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Common Questions</a>
                 <a href="#contact" class="block w-full py-4 bg-blue-600 text-white font-bold rounded-lg mt-2 shadow-lg">Get Free Quote</a>
             </div>
         </div>
@@ -97,7 +106,7 @@
         </div>
     </header>
 
-    <section class="py-20 bg-slate-900">
+    <section id="work" class="py-20 bg-slate-900">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -121,7 +130,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">The "No-Outsource" Guarantee</h3>
                     <p class="text-slate-300 italic mb-6 leading-relaxed">
-                        "I've worked in this industry long enough to see how agencies operate: they sell you the dream, then outsource your site to a junior dev for pennies. That's why I launched Apex. <strong>You hire me, you get me.</strong> Because I do the work personally, I cap my intake at 3 clients per month to ensure your site is perfect. I'm currently building my private portfolio, which is the only reason you're seeing these rates."
+                        "I've worked in this industry long enough to see how agencies operate: they sell you the dream, then outsource your site to a junior dev for pennies. That's why I launched Apex. <strong>You hire me, you get me.</strong> Because I do the work personally, I cap my intake to ensure your site is perfect. I'm currently building my private portfolio, which is the only reason you're seeing these rates."
                     </p>
                     <div class="flex items-center gap-3">
                         <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center font-bold text-blue-300 border border-blue-500/30">EC</div>
@@ -205,14 +214,34 @@
         </div>
     </section>
 
+    <section id="faq" class="py-16 bg-slate-950 border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="border border-white/10 rounded-lg p-6 bg-slate-900/50">
+                    <h4 class="font-bold text-white mb-2">Do I really own the website?</h4>
+                    <p class="text-slate-400 text-sm">Yes. Unlike Wix or Squarespace, once you pay the one-time fee, the code is 100% yours. You are not tied to Apex Digital forever.</p>
+                </div>
+                <div class="border border-white/10 rounded-lg p-6 bg-slate-900/50">
+                    <h4 class="font-bold text-white mb-2">Are there any hidden monthly fees?</h4>
+                    <p class="text-slate-400 text-sm">No. You only pay for hosting (approx. $10-15/year) and your domain name ($12/year). I do not charge a monthly maintenance retainer.</p>
+                </div>
+                <div class="border border-white/10 rounded-lg p-6 bg-slate-900/50">
+                    <h4 class="font-bold text-white mb-2">How long does it take to build?</h4>
+                    <p class="text-slate-400 text-sm">Because I hand-code everything personally, standard turnaround is 7-14 days depending on how fast you can provide photos and text.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="py-24 relative overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 blur-[100px] rounded-full -z-10"></div>
         
         <div class="max-w-xl mx-auto px-6">
             <div class="glass-card p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl">
                 <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold mb-2">Secure Your Slot</h2>
-                    <p class="text-slate-400">I am currently accepting 2 more projects for January.</p>
+                    <h2 class="text-3xl font-bold mb-2">Let's Build Something Great</h2>
+                    <p class="text-slate-400">Current Status: <span class="text-green-400 font-bold">Onboarding New Clients</span></p>
                 </div>
 
                 <form action="https://api.web3forms.com/submit" method="POST" id="form" class="space-y-6">

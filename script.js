@@ -1,5 +1,5 @@
-// Apex Digital V3.0 Script
-// Combined: Safety Checks + New Hidden Input Logic
+// Apex Digital V3.5 Script
+// Combined: Safety Checks, Plan Selection, and AJAX Form Handling
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -29,13 +29,81 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
+    
+    // 3. Contact Form AJAX Handling (New Feature: Confirmation Message)
+    const form = document.getElementById('contact-form');
+    const result = document.getElementById('result');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page reload
+
+            // Basic Client-side Validation
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // UI Feedback: Loading
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    // UI Feedback: Success
+                    result.innerHTML = `<span class="text-green-400">✓ Message Sent! We will be in touch shortly.</span>`;
+                    result.classList.remove('hidden', 'text-red-400');
+                    result.classList.add('block', 'success-message');
+                    form.reset(); // Clear form
+                } else {
+                    console.log(response);
+                    result.innerHTML = `<span class="text-red-400">⚠ Error: ${json.message}</span>`;
+                    result.classList.remove('hidden', 'text-green-400');
+                    result.classList.add('block');
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = `<span class="text-red-400">⚠ Something went wrong. Please try again.</span>`;
+                result.classList.remove('hidden');
+                result.classList.add('block');
+            })
+            .finally(() => {
+                // Reset Button
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    result.classList.add('hidden');
+                }, 5000);
+            });
+        });
+    }
 
 });
 
-// 3. Plan Selection Logic
+// 4. Plan Selection Logic
 // This must be outside the EventListener so the HTML 'onclick' can see it
 window.selectPlan = function(planName) {
-    const form = document.getElementById('form');
+    const form = document.getElementById('contact-form'); // Updated ID to match new form
     
     if (!form) return; // Safety check if form is missing
 

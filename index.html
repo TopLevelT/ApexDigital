@@ -5,52 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Local Business Web Design & SEO | Apex Digital</title>
-    <meta name="description" content="Affordable, high-performance web design for local businesses. We build sites that rank on Google and convert visitors into customers. Flat rate. No monthly fees.">
-    <meta name="keywords" content="Local Web Design, Small Business Website, SEO Services, Affordable Web Design, Lead Generation">
-    <meta name="author" content="Apex Digital">
-
+    <meta name="description" content="Affordable, high-performance web design for local businesses. We build sites that rank on Google and convert visitors into customers.">
+    
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.apexdigital.com/">
     <meta property="og:title" content="Apex Digital | High-Performance Local Websites">
-    <meta property="og:description" content="Stop renting your website. Get a custom, Google-optimized asset for a one-time fee. 100% Ownership.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.apexdigital.com/">
-    <meta property="twitter:title" content="Apex Digital | High-Performance Local Websites">
-    <meta property="twitter:description" content="Stop renting your website. Get a custom, Google-optimized asset for a one-time fee.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
-        .glass-nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        /* Dynamic Nav State */
+        .nav-transparent { background: transparent; border-bottom: 1px solid transparent; }
+        .glass-nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        
         .glass-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
         .text-gradient { background: linear-gradient(to right, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .grid-bg { background-image: radial-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px); background-size: 40px 40px; }
         
-        /* Form success animation */
+        /* Animations */
+        .fade-up-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-up-element.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Success Message Animation */
         .success-message { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Scroll Animations (New Feature) */
-        .fade-up-element {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-up-element.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* Floating Chat Button */
+        .chat-float { animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased overflow-x-hidden relative">
 
-    <nav class="fixed top-0 left-0 w-full z-50 glass-nav shadow-lg">
+    <a href="#contact" aria-label="Chat with us" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.4)] transition transform hover:scale-110 flex items-center justify-center gap-2 group">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span class="hidden group-hover:block ml-2 text-sm font-bold">Chat Now</span>
+    </a>
+
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-40 nav-transparent transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-extrabold tracking-tight flex items-center gap-2">
                 <span class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white text-lg font-bold">A</span>
@@ -60,19 +57,19 @@
             <div class="hidden md:flex gap-8 items-center text-sm font-medium text-slate-300">
                 <a href="#about" class="hover:text-white transition">Why Apex?</a>
                 <a href="#portfolio" class="hover:text-white transition">Work</a>
-                <a href="#pricing" class="hover:text-white transition">Packages</a>
                 <a href="#blog" class="hover:text-white transition">Insights</a>
+                <a href="#pricing" class="hover:text-white transition">Packages</a>
                 <a href="#contact" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-500 transition shadow-lg">
                     Get Free Quote
                 </a>
             </div>
 
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2 border border-white/10 rounded-md">
+            <button id="menu-btn" aria-label="Open Menu" class="md:hidden text-white focus:outline-none p-2 border border-white/10 rounded-md">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40">
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl">
             <div class="flex flex-col p-6 space-y-4 text-center">
                 <a href="#about" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Why Apex?</a>
                 <a href="#portfolio" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Our Work</a>
@@ -109,9 +106,16 @@
                 </a>
             </div>
             
-            <p class="mt-6 text-xs text-slate-500 uppercase tracking-widest">
-                Zero Monthly Fees • 100% Asset Ownership • Hand-Coded
-            </p>
+            <div class="mt-12 flex justify-center items-center gap-6 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                <div class="flex items-center gap-2 text-slate-500 text-xs font-bold uppercase tracking-widest border border-white/10 px-4 py-2 rounded-full">
+                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    SSL Secured
+                </div>
+                <div class="flex items-center gap-2 text-slate-500 text-xs font-bold uppercase tracking-widest border border-white/10 px-4 py-2 rounded-full">
+                    <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    SEO Certified
+                </div>
+            </div>
         </div>
     </header>
 
@@ -183,7 +187,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass-card rounded-xl overflow-hidden group hover:border-blue-500/50 transition fade-up-element">
                     <div class="h-48 bg-slate-800 relative">
-                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Tech Client">
+                         <img loading="lazy" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Tech Client">
                     </div>
                     <div class="p-6">
                         <div class="text-xs text-blue-400 font-bold uppercase tracking-wider mb-2">Service Industry</div>
@@ -195,7 +199,7 @@
 
                 <div class="glass-card rounded-xl overflow-hidden group hover:border-blue-500/50 transition fade-up-element">
                     <div class="h-48 bg-slate-800 relative">
-                        <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Legal Client">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Legal Client">
                     </div>
                     <div class="p-6">
                         <div class="text-xs text-blue-400 font-bold uppercase tracking-wider mb-2">Legal</div>
@@ -207,7 +211,7 @@
 
                 <div class="glass-card rounded-xl overflow-hidden group hover:border-blue-500/50 transition fade-up-element">
                     <div class="h-48 bg-slate-800 relative">
-                        <img src="https://images.unsplash.com/photo-1595475207225-428b62bda831?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Retail Client">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1595475207225-428b62bda831?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500" alt="Retail Client">
                     </div>
                     <div class="p-6">
                         <div class="text-xs text-blue-400 font-bold uppercase tracking-wider mb-2">E-Commerce</div>
@@ -362,22 +366,22 @@
                     <input type="hidden" name="access_key" value="a8bb5fa9-db52-476c-a587-f40fa7ba8412">
                     
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Your Name</label>
+                        <label for="name" class="block text-sm font-medium text-slate-400 mb-2">Your Name</label>
                         <input type="text" name="name" id="name" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="John Smith">
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Phone Number</label>
+                        <label for="phone" class="block text-sm font-medium text-slate-400 mb-2">Phone Number</label>
                         <input type="tel" name="phone" id="phone" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="(555) 000-0000">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Email Address</label>
+                        <label for="email" class="block text-sm font-medium text-slate-400 mb-2">Email Address</label>
                         <input type="email" name="email" id="email" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Message (Optional)</label>
+                        <label for="message" class="block text-sm font-medium text-slate-400 mb-2">Message (Optional)</label>
                         <textarea name="message" id="message" rows="3" class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Tell me about your business..."></textarea>
                     </div>
 
@@ -392,29 +396,46 @@
         </div>
     </section>
 
-    <footer class="bg-slate-950 border-t border-white/5 py-12 md:py-16">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-xs">A</div>
-                <span class="font-bold text-white">Apex<span class="text-blue-500">Digital</span></span>
-            </div>
-            
-            <div class="flex gap-6">
-                <a href="#" class="text-slate-400 hover:text-white transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-                </a>
+    <section class="py-16 bg-slate-900 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold text-white mb-2">Join the Apex Newsletter</h3>
+            <p class="text-slate-400 text-sm mb-6">Get weekly tips on SEO and Web Performance. No spam, ever.</p>
+            <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                <input type="email" placeholder="Enter your email" required class="flex-1 bg-slate-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg transition">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-xs">A</div>
+                    <span class="font-bold text-white">Apex<span class="text-blue-500">Digital</span></span>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="#" aria-label="Facebook" class="text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter" class="text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" class="text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                    </a>
+                </div>
             </div>
 
-            <p class="text-slate-600 text-xs text-center md:text-right">
-                &copy; <span id="current-year">2026</span> Apex Digital. All rights reserved. <br>
-                Built by Ethan Caldwell.
-            </p>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
+                <p>&copy; <span id="current-year">2026</span> Apex Digital. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition">Sitemap</a>
+                </div>
+            </div>
         </div>
     </footer>
 

@@ -1,44 +1,59 @@
-// Apex Digital V2.1 Script
-// Bulletproofed for Null Element Errors
+// Apex Digital V3.0 Script
+// Combined: Safety Checks + New Hidden Input Logic
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mobile Menu Logic (With "Optional Chaining" Checks)
+    // 1. Mobile Menu Logic
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    // Only run if both elements actually exist
+    // Safety Check: Only run if elements exist
     if (menuBtn && mobileMenu) {
+        const menuLinks = mobileMenu.querySelectorAll('a');
+
+        // Toggle Menu
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
         // Close menu when clicking a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
+        menuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
     }
 
-    // 2. Dynamic Year in Footer (Safe Check)
+    // 2. Dynamic Year Update
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // 3. Plan Selection Logic (Safe Check)
-    window.selectPlan = function(planName) {
-        const selectBox = document.getElementById('service-select');
-        // If the select box doesn't exist, stop immediately
-        if (!selectBox) return;
-
-        selectBox.value = planName;
-        // Visual feedback
-        selectBox.classList.add('ring-2', 'ring-indigo-500');
-        setTimeout(() => {
-            if (selectBox) selectBox.classList.remove('ring-2', 'ring-indigo-500');
-        }, 500);
-    };
 });
+
+// 3. Plan Selection Logic
+// This must be outside the EventListener so the HTML 'onclick' can see it
+window.selectPlan = function(planName) {
+    const form = document.getElementById('form');
+    
+    if (!form) return; // Safety check if form is missing
+
+    // Look for existing hidden input
+    let packageInput = document.getElementById('package-input');
+    
+    // If it doesn't exist, create it
+    if (!packageInput) {
+        packageInput = document.createElement('input');
+        packageInput.type = 'hidden';
+        packageInput.name = 'Selected Package'; // This shows up in your email
+        packageInput.id = 'package-input';
+        form.appendChild(packageInput);
+    }
+    
+    // Set the value (e.g., "Dominance")
+    packageInput.value = planName;
+    
+    // Visual Feedback (Console log for testing)
+    console.log(`Package Selected: ${planName}`);
+};

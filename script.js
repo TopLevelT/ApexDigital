@@ -1,5 +1,5 @@
-// Apex Digital V5.0 Script
-// Features: Dynamic Nav, Smooth Scroll, Form Logic, Animations
+// Apex Digital V3.5 Script
+// Combined: Safety Checks, Plan Selection, and AJAX Form Handling
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -7,11 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
+    // Safety Check: Only run if elements exist
     if (menuBtn && mobileMenu) {
         const menuLinks = mobileMenu.querySelectorAll('a');
+
+        // Toggle Menu
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // Close menu when clicking a link
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -19,39 +24,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Dynamic Sticky Navigation (Glass Effect on Scroll)
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('glass-nav');
-            navbar.classList.remove('nav-transparent', 'py-4');
-            navbar.classList.add('py-2'); // Shrink slightly
-        } else {
-            navbar.classList.remove('glass-nav', 'py-2');
-            navbar.classList.add('nav-transparent', 'py-4');
-        }
-    });
-
-    // 3. Dynamic Year Update
+    // 2. Dynamic Year Update
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
     
-    // 4. Contact Form AJAX Handling
+    // 3. Contact Form AJAX Handling (New Feature: Confirmation Message)
     const form = document.getElementById('contact-form');
     const result = document.getElementById('result');
     const submitBtn = document.getElementById('submit-btn');
 
     if (form) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Stop page reload
 
+            // Basic Client-side Validation
             if(!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
 
+            // UI Feedback: Loading
             const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = "Sending...";
             submitBtn.disabled = true;
@@ -72,10 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(async (response) => {
                 let json = await response.json();
                 if (response.status == 200) {
+                    // UI Feedback: Success
                     result.innerHTML = `<span class="text-green-400">✓ Message Sent! We will be in touch shortly.</span>`;
                     result.classList.remove('hidden', 'text-red-400');
                     result.classList.add('block', 'success-message');
-                    form.reset();
+                    form.reset(); // Clear form
                 } else {
                     console.log(response);
                     result.innerHTML = `<span class="text-red-400">⚠ Error: ${json.message}</span>`;
@@ -90,9 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 result.classList.add('block');
             })
             .finally(() => {
+                // Reset Button
                 submitBtn.textContent = originalBtnText;
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                
+                // Hide success message after 5 seconds
                 setTimeout(() => {
                     result.classList.add('hidden');
                 }, 5000);
@@ -100,57 +98,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Scroll Animations (Intersection Observer)
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1 
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    const fadeElements = document.querySelectorAll('.fade-up-element');
-    fadeElements.forEach(el => observer.observe(el));
-
-    // 6. Newsletter Form Placeholder Logic
-    const newsForm = document.getElementById('newsletter-form');
-    if(newsForm) {
-        newsForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = newsForm.querySelector('button');
-            const originalText = btn.textContent;
-            btn.textContent = 'Subscribed!';
-            btn.classList.add('bg-green-600');
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.classList.remove('bg-green-600');
-                newsForm.reset();
-            }, 3000);
-        });
-    }
-
 });
 
-// 7. Plan Selection Logic
+// 4. Plan Selection Logic
+// This must be outside the EventListener so the HTML 'onclick' can see it
 window.selectPlan = function(planName) {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
+    const form = document.getElementById('contact-form'); // Updated ID to match new form
+    
+    if (!form) return; // Safety check if form is missing
 
+    // Look for existing hidden input
     let packageInput = document.getElementById('package-input');
+    
+    // If it doesn't exist, create it
     if (!packageInput) {
         packageInput = document.createElement('input');
         packageInput.type = 'hidden';
-        packageInput.name = 'Selected Package';
+        packageInput.name = 'Selected Package'; // This shows up in your email
         packageInput.id = 'package-input';
         form.appendChild(packageInput);
     }
+    
+    // Set the value (e.g., "Dominance")
     packageInput.value = planName;
+    
+    // Visual Feedback (Console log for testing)
     console.log(`Package Selected: ${planName}`);
 };

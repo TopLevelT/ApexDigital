@@ -3,341 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Digital | High-Performance Web Development</title>
+    <title>Apex Digital | Premium Web Design & SEO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; }
-        /* V2.1 Fix: Darker Nav Background for readability */
-        .glass-nav { background: rgba(2, 6, 23, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
-        .text-gradient { background: linear-gradient(to right, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .glass-nav { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        .text-gradient { background: linear-gradient(to right, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .grid-bg { background-image: radial-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px); background-size: 40px 40px; }
+        .strike-price { text-decoration: line-through; text-decoration-color: #ef4444; opacity: 0.6; }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
 
-    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 shadow-lg">
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-extrabold tracking-tight flex items-center gap-2">
-                <span class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white text-lg">A</span>
-                Apex<span class="text-indigo-400">Digital</span>
+                <span class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white text-lg font-bold">A</span>
+                Apex<span class="text-blue-400">Digital</span>
             </a>
             
             <div class="hidden md:flex gap-8 items-center text-sm font-medium text-slate-300">
-                <a href="#process" class="hover:text-white transition">Process</a>
+                <a href="#work" class="hover:text-white transition">Our Work</a>
                 <a href="#pricing" class="hover:text-white transition">Pricing</a>
-                <a href="#faq" class="hover:text-white transition">FAQ</a>
-                <a href="#contact" class="px-5 py-2.5 bg-white text-slate-900 rounded-full font-bold hover:bg-indigo-50 transition transform hover:scale-105">
-                    Book Consultation
+                <a href="#guarantee" class="hover:text-white transition">Guarantee</a>
+                <a href="#contact" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-500 transition shadow-lg">
+                    Get My Free Quote
                 </a>
             </div>
 
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2 border border-white/10 rounded-md" aria-label="Toggle Menu">
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2 border border-white/10 rounded-md">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-950 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40">
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-white/10 absolute w-full left-0 top-full shadow-2xl z-40">
             <div class="flex flex-col p-6 space-y-4 text-center">
-                <a href="#process" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Process</a>
+                <a href="#work" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Our Work</a>
                 <a href="#pricing" class="text-slate-300 hover:text-white py-3 border-b border-white/5">Pricing</a>
-                <a href="#faq" class="text-slate-300 hover:text-white py-3 border-b border-white/5">FAQ</a>
-                <a href="#contact" class="block w-full py-4 bg-indigo-600 text-white font-bold rounded-lg mt-2 shadow-lg">Book Consultation</a>
+                <a href="#contact" class="block w-full py-4 bg-blue-600 text-white font-bold rounded-lg mt-2 shadow-lg">Get Free Quote</a>
             </div>
         </div>
     </nav>
 
     <header class="relative pt-40 pb-20 lg:pt-52 lg:pb-32 grid-bg">
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
             
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-8">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Accepting New Clients: 2 Spots Left
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-300 text-xs font-bold uppercase tracking-wider mb-8">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                Portfolio Building Offer: 50% Off First 3 Clients
             </div>
 
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-8">
-                Turn Your Website Into A <br>
-                <span class="text-gradient">24/7 Sales Machine</span>
+                We Build Websites That <br>
+                <span class="text-gradient">Actually Get You Calls.</span>
             </h1>
             
             <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Most local websites are broken, slow, and ugly. We build high-performance digital assets that rank on Google and convert visitors into paying customers.
+                Most web designers build "pretty" sites that do nothing. We build high-speed sales assets designed to rank on Google and turn strangers into paying customers.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition shadow-[0_0_20px_rgba(79,70,229,0.3)]">
-                    View Pricing
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+                    See The Offer
                 </a>
-                <a href="#process" class="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-lg transition">
-                    How It Works
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-lg transition">
+                    Book a Strategy Call
                 </a>
             </div>
-
-            <div class="mt-16 pt-8 border-t border-white/5 opacity-60 grayscale hover:grayscale-0 transition duration-500">
-                <p class="text-sm text-slate-500 mb-6 uppercase tracking-widest">Enterprise-Grade Architecture</p>
-                <div class="flex justify-center gap-8 md:gap-16 flex-wrap">
-                    <span class="text-xl font-bold text-slate-400 flex items-center gap-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l-12 21.5h24l-12-21.5z"/></svg> Vercel</span>
-                    <span class="text-xl font-bold text-slate-400 flex items-center gap-2">⚛ React</span>
-                    <span class="text-xl font-bold text-slate-400 flex items-center gap-2">⚡ Tailwind</span>
-                </div>
-            </div>
+            
+            <p class="mt-6 text-xs text-slate-500 uppercase tracking-widest">
+                No Monthly Fees • 100% Ownership • Google Optimized
+            </p>
         </div>
     </header>
 
-    <section class="py-24 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Most Local Sites Fail</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Stop using Wix and Squarespace. They are slow, generic, and you don't actually own them. You need a custom solution.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-300">
-                    <div class="w-12 h-12 bg-indigo-900/50 rounded-lg flex items-center justify-center text-2xl mb-6">🚀</div>
-                    <h3 class="text-xl font-bold mb-3">Google Speed Score: 99+</h3>
-                    <p class="text-slate-400 leading-relaxed">We code by hand. No bloated page builders. Google loves fast sites and ranks them higher.</p>
-                </div>
-                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-300">
-                    <div class="w-12 h-12 bg-purple-900/50 rounded-lg flex items-center justify-center text-2xl mb-6">📱</div>
-                    <h3 class="text-xl font-bold mb-3">Mobile-First Design</h3>
-                    <p class="text-slate-400 leading-relaxed">60% of your customers are on phones. We build for the iPhone first, ensuring a perfect experience.</p>
-                </div>
-                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-300">
-                    <div class="w-12 h-12 bg-emerald-900/50 rounded-lg flex items-center justify-center text-2xl mb-6">🔒</div>
-                    <h3 class="text-xl font-bold mb-3">100% Asset Ownership</h3>
-                    <p class="text-slate-400 leading-relaxed">You own the code. You own the domain. We don't hold your business hostage with monthly platform fees.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="process" class="py-24 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+    <section class="py-20 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">How We Work</h2>
-                    <div class="space-y-8">
-                        <div class="flex gap-4">
-                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center font-bold">1</span>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Strategy & Design</h4>
-                                <p class="text-slate-400">We analyze your competitors and design a mockup that destroys them.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center font-bold">2</span>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Development</h4>
-                                <p class="text-slate-400">We write clean, semantic code optimized for SEO and lightning speed.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center font-bold">3</span>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Launch & Growth</h4>
-                                <p class="text-slate-400">We deploy to a global CDN and hand over the keys. You are ready to sell.</p>
-                            </div>
+                    <h2 class="text-3xl font-bold mb-6">Tired of "Web Designers" Who Ghost You?</h2>
+                    <p class="text-slate-400 mb-4 leading-relaxed">
+                        We know the story. You hired a guy, paid him a deposit, and he disappeared. Or you used Wix, and your site takes 10 seconds to load.
+                    </p>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        <strong>Apex Digital is different.</strong> We aren't just "coders." We are business partners. We don't stop until your phone rings.
+                    </p>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex gap-3 items-center"><span class="text-green-400">✓</span> Direct access to the developer (No support tickets)</li>
+                        <li class="flex gap-3 items-center"><span class="text-green-400">✓</span> Google Business Profile Optimization included</li>
+                        <li class="flex gap-3 items-center"><span class="text-green-400">✓</span> You own the code forever</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6 rounded-xl border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold mb-4">The "Portfolio" Offer</h3>
+                    <p class="text-slate-400 text-sm mb-4">
+                        "Why are your prices so low?"
+                    </p>
+                    <p class="text-slate-300 italic">
+                        "Honest answer: We are a new agency looking to build our case studies. We are doing work that usually costs $2,500+ for a fraction of the price, in exchange for a simple testimonial after we blow you away."
+                    </p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">JD</div>
+                        <div>
+                            <p class="font-bold text-white">John Doe</p>
+                            <p class="text-xs text-slate-500">Lead Developer, Apex Digital</p>
                         </div>
                     </div>
-                </div>
-                <div class="glass-card p-2 rounded-2xl transform rotate-3 hover:rotate-0 transition duration-500">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coding Dashboard" class="rounded-xl opacity-80">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="pricing" class="py-24 bg-slate-900/50">
+    <section id="pricing" class="py-24 bg-slate-950 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-                <p class="text-slate-400">No hidden fees. No surprises. Just results.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Launch Pricing</h2>
+                <p class="text-slate-400">Lock in these rates before we return to standard agency pricing.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 
-                <div class="glass-card p-8 rounded-2xl flex flex-col relative overflow-hidden">
-                    <h3 class="text-xl font-bold text-slate-300 mb-2">Starter</h3>
-                    <div class="text-4xl font-bold mb-6">$499<span class="text-sm text-slate-500 font-normal"> / one-time</span></div>
+                <div class="glass-card p-8 rounded-2xl flex flex-col relative">
+                    <h3 class="text-xl font-bold text-slate-300 mb-2">The "Essentials" Package</h3>
+                    <div class="flex items-end gap-3 mb-6">
+                        <div class="text-4xl font-bold text-white">$499</div>
+                        <div class="text-xl text-slate-500 strike-price mb-1">$1,200</div>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-6">Perfect for tradesmen and local services who just need to be found.</p>
                     <ul class="space-y-4 mb-8 text-slate-300 text-sm flex-1">
-                        <li class="flex gap-2">✓ 1 Page Conversion Site</li>
-                        <li class="flex gap-2">✓ Mobile Responsive</li>
-                        <li class="flex gap-2">✓ Contact Form Integration</li>
-                        <li class="flex gap-2">✓ 1 Week Delivery</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> High-Converting One Page Website</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>We Write The Text For You</strong></li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> Mobile Optimized (Looks great on iPhone)</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> Contact Form -> Goes to your Email</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> 5-Day Turnaround</li>
                     </ul>
-                    <a href="#contact" onclick="selectPlan('Starter')" class="block w-full py-3 text-center border border-white/20 hover:bg-white/10 rounded-lg font-semibold transition">Select Starter</a>
+                    <a href="#contact" onclick="selectPlan('Essentials')" class="block w-full py-4 text-center border border-white/20 hover:bg-white/10 rounded-lg font-semibold transition">Select Package</a>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl flex flex-col relative border-indigo-500 shadow-[0_0_40px_rgba(99,102,241,0.15)] transform md:-translate-y-4">
-                    <div class="absolute top-0 left-0 w-full bg-indigo-600 text-xs text-center py-1 font-bold uppercase tracking-widest">Most Popular</div>
-                    <h3 class="text-xl font-bold text-white mt-4 mb-2">Authority</h3>
-                    <div class="text-4xl font-bold mb-6">$899<span class="text-sm text-slate-500 font-normal"> / one-time</span></div>
-                    <ul class="space-y-4 mb-8 text-slate-300 text-sm flex-1">
-                        <li class="flex gap-2 text-white">✓ 5 Page Complete Website</li>
-                        <li class="flex gap-2 text-white">✓ Advanced SEO Setup</li>
-                        <li class="flex gap-2 text-white">✓ Analytics Integration</li>
-                        <li class="flex gap-2">✓ Social Media Links</li>
-                        <li class="flex gap-2">✓ 2 Weeks Delivery</li>
+                <div class="glass-card p-8 rounded-2xl flex flex-col relative border-blue-500 shadow-[0_0_40px_rgba(37,99,235,0.15)]">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-xs px-3 py-1 font-bold rounded-bl-lg rounded-tr-lg">BEST VALUE</div>
+                    <h3 class="text-xl font-bold text-white mb-2">The "Local Dominance" Package</h3>
+                    <div class="flex items-end gap-3 mb-6">
+                        <div class="text-4xl font-bold text-white">$899</div>
+                        <div class="text-xl text-slate-500 strike-price mb-1">$2,500</div>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-6">For businesses that want to rank on Google and beat competitors.</p>
+                    <ul class="space-y-4 mb-8 text-white text-sm flex-1">
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> <strong>5-Page Complete Website</strong></li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> Google Business Profile Setup & Optimization</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> Basic SEO (Title Tags & Keywords)</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> Competitor Analysis</li>
+                        <li class="flex gap-2"><span class="text-blue-400">✓</span> Analytics Dashboard Setup</li>
                     </ul>
-                    <a href="#contact" onclick="selectPlan('Authority')" class="block w-full py-3 text-center bg-indigo-600 hover:bg-indigo-500 rounded-lg font-bold transition">Select Authority</a>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl flex flex-col">
-                    <h3 class="text-xl font-bold text-slate-300 mb-2">Growth Care</h3>
-                    <div class="text-4xl font-bold mb-6">$99<span class="text-sm text-slate-500 font-normal"> / month</span></div>
-                    <ul class="space-y-4 mb-8 text-slate-300 text-sm flex-1">
-                        <li class="flex gap-2">✓ Hosting Included</li>
-                        <li class="flex gap-2">✓ Unlimited Content Edits</li>
-                        <li class="flex gap-2">✓ Monthly Performance Reports</li>
-                        <li class="flex gap-2">✓ 24/7 Uptime Monitoring</li>
-                    </ul>
-                    <a href="#contact" onclick="selectPlan('Care Plan')" class="block w-full py-3 text-center border border-white/20 hover:bg-white/10 rounded-lg font-semibold transition">Subscribe</a>
+                    <a href="#contact" onclick="selectPlan('Dominance')" class="block w-full py-4 text-center bg-blue-600 hover:bg-blue-500 rounded-lg font-bold transition">Select Package</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="faq" class="py-24 border-t border-white/5">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-            <div class="space-y-4">
-                <details class="group glass-card rounded-xl">
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-slate-200">
-                        <span>How long does it take?</span>
-                        <span class="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </summary>
-                    <div class="text-slate-400 mt-0 px-6 pb-6">
-                        For a standard One-Page site, we typically deliver within 5-7 business days. Larger projects take about 2 weeks.
-                    </div>
-                </details>
-                <details class="group glass-card rounded-xl">
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-slate-200">
-                        <span>Do I own the website?</span>
-                        <span class="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </summary>
-                    <div class="text-slate-400 mt-0 px-6 pb-6">
-                        Yes. Unlike Wix or Squarespace, you own 100% of the code and assets. If you ever want to leave, you can take your files with you.
-                    </div>
-                </details>
-                <details class="group glass-card rounded-xl">
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-slate-200">
-                        <span>What if I don't like the design?</span>
-                        <span class="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </summary>
-                    <div class="text-slate-400 mt-0 px-6 pb-6">
-                        We offer a "Love It or Leave It" guarantee. We don't stop revising until you are happy, or we refund your deposit.
-                    </div>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-12 bg-indigo-900/20 border-t border-white/5">
+    <section id="guarantee" class="py-16 bg-blue-900/10 border-t border-white/5">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-full text-3xl mb-6 shadow-[0_0_30px_rgba(99,102,241,0.5)]">
-                🤝
-            </div>
-            <h2 class="text-2xl font-bold text-white mb-4">Our "Love It Or Leave It" Guarantee</h2>
-            <p class="text-slate-400 mb-0">
-                We are so confident in our code that we take all the risk. 
-                If you aren't happy with the initial design draft, we will refund your deposit immediately. 
-                No questions asked.
+            <h2 class="text-2xl font-bold text-white mb-4">🛡️ The "No-Risk" Promise</h2>
+            <p class="text-slate-300 leading-relaxed mb-8">
+                We don't take your money and run. We work on a <strong>Milestone Basis</strong>.
+                You pay a small deposit to start. You don't pay the rest until you see the design and 
+                <strong>love it</strong>. If you aren't happy with the draft, we refund your deposit instantly.
             </p>
         </div>
     </section>
 
     <section id="contact" class="py-24 relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/20 blur-[100px] rounded-full -z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 blur-[100px] rounded-full -z-10"></div>
         
         <div class="max-w-xl mx-auto px-6">
             <div class="glass-card p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl">
                 <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold mb-2">Start Your Project</h2>
-                    <p class="text-slate-400">Fill out the form below to check availability.</p>
+                    <h2 class="text-3xl font-bold mb-2">Check Availability</h2>
+                    <p class="text-slate-400">Due to the "Portfolio Offer," we can only accept 2 more clients this month.</p>
                 </div>
 
                 <form action="https://api.web3forms.com/submit" method="POST" id="form" class="space-y-6">
                     <input type="hidden" name="access_key" value="a8bb5fa9-db52-476c-a587-f40fa7ba8412">
                     
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Business Name / Your Name</label>
-                        <input type="text" name="name" required class="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition" placeholder="e.g. Apex Plumbing">
+                        <label class="block text-sm font-medium text-slate-400 mb-2">Your Name</label>
+                        <input type="text" name="name" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="John Smith">
                     </div>
                     
                     <div>
                         <label class="block text-sm font-medium text-slate-400 mb-2">Email Address</label>
-                        <input type="email" name="email" required class="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition" placeholder="john@example.com">
+                        <input type="email" name="email" required class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Service Interested In</label>
-                        <select id="service-select" name="service" class="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition">
-                            <option value="Consultation">General Consultation</option>
-                            <option value="Starter Plan ($499)">Starter Plan ($499)</option>
-                            <option value="Authority Plan ($899)">Authority Plan ($899)</option>
-                            <option value="Care Plan">Care Plan ($99/mo)</option>
+                        <label class="block text-sm font-medium text-slate-400 mb-2">I'm Interested In...</label>
+                        <select id="service-select" name="service" class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition">
+                            <option value="Essentials Package ($499)">Essentials Package ($499)</option>
+                            <option value="Dominance Package ($899)">Dominance Package ($899)</option>
+                            <option value="Custom Quote">Just a question</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Project Details</label>
-                        <textarea name="message" rows="4" class="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition" placeholder="Tell us about your current website..."></textarea>
+                        <label class="block text-sm font-medium text-slate-400 mb-2">Tell us about your business</label>
+                        <textarea name="message" rows="3" class="w-full bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="e.g. I own a plumbing company in Texas..."></textarea>
                     </div>
 
-                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-lg transition shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)]">
-                        Send Request
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-lg transition shadow-lg transform hover:scale-[1.02]">
+                        Secure My Discount
                     </button>
                     
-                    <p class="text-center text-xs text-slate-500 mt-4">We usually reply within 2 hours.</p>
+                    <p class="text-center text-xs text-slate-500 mt-4">100% Privacy Guaranteed. No Spam.</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-950 border-t border-white/5 pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                        <span class="font-bold text-white text-xl">Apex<span class="text-indigo-500">Digital</span></span>
-                    </div>
-                    <p class="text-slate-500 text-sm leading-relaxed max-w-xs">
-                        Building the fastest, most secure websites for local businesses. Stop losing customers to slow loading speeds.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-4">Navigation</h4>
-                    <ul class="space-y-2 text-sm text-slate-500">
-                        <li><a href="#process" class="hover:text-indigo-400 transition">Our Process</a></li>
-                        <li><a href="#pricing" class="hover:text-indigo-400 transition">Pricing</a></li>
-                        <li><a href="#faq" class="hover:text-indigo-400 transition">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-sm text-slate-500">
-                        <li><a href="#" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition">Terms of Service</a></li>
-                        <li><a href="#contact" class="hover:text-indigo-400 transition">Contact Support</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-slate-950 border-t border-white/5 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-xs">A</div>
+                <span class="font-bold text-white">Apex<span class="text-blue-500">Digital</span></span>
             </div>
-
-            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-600 text-xs">&copy; <span id="current-year"></span> Apex Digital Agency. All rights reserved.</p>
-            </div>
+            <p class="text-slate-600 text-xs text-center md:text-right">
+                &copy; <span id="current-year"></span> Apex Digital. All rights reserved. <br>
+                Designed for high performance.
+            </p>
         </div>
     </footer>
 

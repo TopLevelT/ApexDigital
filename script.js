@@ -1,5 +1,5 @@
-// Apex Digital V4.0 Script
-// Combined: Safety Checks, Plan Selection, AJAX Form Handling, and Scroll Animations
+// Apex Digital V5.0 Script
+// Features: Dynamic Nav, Smooth Scroll, Form Logic, Animations
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -19,13 +19,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Dynamic Year Update
+    // 2. Dynamic Sticky Navigation (Glass Effect on Scroll)
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('glass-nav');
+            navbar.classList.remove('nav-transparent', 'py-4');
+            navbar.classList.add('py-2'); // Shrink slightly
+        } else {
+            navbar.classList.remove('glass-nav', 'py-2');
+            navbar.classList.add('nav-transparent', 'py-4');
+        }
+    });
+
+    // 3. Dynamic Year Update
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
     
-    // 3. Contact Form AJAX Handling
+    // 4. Contact Form AJAX Handling
     const form = document.getElementById('contact-form');
     const result = document.getElementById('result');
     const submitBtn = document.getElementById('submit-btn');
@@ -87,18 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. NEW FEATURE: Scroll Animations (Intersection Observer)
+    // 5. Scroll Animations (Intersection Observer)
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of element is visible
+        threshold: 0.1 
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Only animate once
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -106,9 +119,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeElements = document.querySelectorAll('.fade-up-element');
     fadeElements.forEach(el => observer.observe(el));
 
+    // 6. Newsletter Form Placeholder Logic
+    const newsForm = document.getElementById('newsletter-form');
+    if(newsForm) {
+        newsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = newsForm.querySelector('button');
+            const originalText = btn.textContent;
+            btn.textContent = 'Subscribed!';
+            btn.classList.add('bg-green-600');
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('bg-green-600');
+                newsForm.reset();
+            }, 3000);
+        });
+    }
+
 });
 
-// 5. Plan Selection Logic
+// 7. Plan Selection Logic
 window.selectPlan = function(planName) {
     const form = document.getElementById('contact-form');
     if (!form) return;
